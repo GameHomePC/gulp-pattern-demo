@@ -1,0 +1,22 @@
+{
+  "name": "gulp-pattern-demo",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ealexseen"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "reset.scss": "^1.0.0",
+    "jquery": "^2.2.1"
+  }
+}
