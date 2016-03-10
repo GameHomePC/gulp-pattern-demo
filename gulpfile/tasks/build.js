@@ -6,10 +6,11 @@ var gulp = require('gulp');
 
 var buildFunc = [
     'html:build',
-    'js:build',
+    //'js:build',
     'sass:build',
     'fonts:build',
-    'image:build'
+    'image:build',
+    //'webpack'
 ];
 
 gulp.task('build', buildFunc);

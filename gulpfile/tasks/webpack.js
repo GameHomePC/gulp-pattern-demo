@@ -1,14 +1,11 @@
-var config = require('../config');
+"use strict";
 
-var isDevelopment = true;
+let config = require('../config');
 
-var gulp = require('gulp'),
-    browserSync = require("browser-sync"),
-    reload = browserSync.reload,
-    browserify = require('browserify'),
+let isDevelopment = true;
+
+let gulp = require('gulp'),
     source = require('vinyl-source-stream'),
-    babelify = require("babelify"),
-    gutil = require('gulp-util'),
     path = require('path'),
     webpackStream = require('webpack-stream'),
     webpack = webpackStream.webpack,
@@ -16,10 +13,25 @@ var gulp = require('gulp'),
     notify = require("gulp-notify"),
     gulpIf = require('gulp-if'),
     uglify = require('gulp-uglify'),
-    named = require('vinyl-named');
+    named = require('vinyl-named'),
+    gulplog = require('gulplog');
 
-gulp.task('webpack', function() {
-    var options = {
+gulp.task('webpack', function(callback) {
+    let firstBuildReady = false;
+
+    function done(err, stats) {
+        firstBuildReady = true;
+
+        if(err) {
+            return;
+        }
+
+        gulplog[stats.hasErrors() ? 'error' : 'info'](stats.toString({
+            colors: true
+        }))
+    }
+
+    let options = {
         watch: isDevelopment,
         devtool: isDevelopment ? 'cheap-module-inline-source-map' : null,
         module: {
@@ -43,9 +55,14 @@ gulp.task('webpack', function() {
             }))
         }))
         .pipe(named())
-        .pipe(webpackStream(options))
+        .pipe(webpackStream(options, null, done))
         .pipe(gulpIf(!isDevelopment, uglify()))
-        .pipe(gulp.dest(config.tasks.js.dest));
+        .pipe(gulp.dest(config.tasks.js.dest))
+        .on('data' , function() {
+            if(firstBuildReady) {
+                callback();
+            }
+        });
 });
 
 //gulp.task('js:build', jsFunc);
