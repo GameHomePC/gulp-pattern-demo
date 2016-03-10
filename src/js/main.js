@@ -1,5 +1,5 @@
 
-class User extends Date {
+class User extends Test {
     constructor() {
         super();
 
@@ -15,8 +15,16 @@ class User extends Date {
     }
 }
 
-var n = new User();
+class Test {
+    constructor() {
+        super();
 
-console.dir(n);
+        this.name = 'Вася'
+    }
 
-//b(e)=>e;
+    getName(name) {
+        return name ? name : this.name;
+    }
+}
+
+var n = window.n = 2;

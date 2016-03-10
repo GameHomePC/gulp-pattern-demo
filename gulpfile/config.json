@@ -5,9 +5,8 @@
                 "baseDir": "./build"
             },
             "host": "localhost",
-            "port": 9000,
-            "logPrefix": "Frontend_Devil",
-            "open": false
+            "logPrefix": "Frontend_Dev",
+            "open": true
         },
         "js": {
             "src": [

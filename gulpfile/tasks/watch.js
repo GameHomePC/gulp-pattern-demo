@@ -12,9 +12,6 @@ var watchFunc = function() {
     watch([config.tasks.css.watch], function(event, cb) {
         gulp.start('sass:build');
     });
-    watch([config.tasks.js.watch], function(event, cb) {
-        gulp.start('js:build');
-    });
     watch([config.tasks.images.watch], function(event, cb) {
         gulp.start('image:build');
     });
