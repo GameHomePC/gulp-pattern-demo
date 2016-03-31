@@ -2,7 +2,7 @@
     "tasks": {
         "browserSync": {
             "server": {
-                "baseDir": "./build"
+                "baseDir": "./"
             },
             "host": "localhost",
             "logPrefix": "Frontend_Dev",
@@ -10,16 +10,16 @@
         },
         "js": {
             "src": [
-                "./src/js/main.js",
-                "./src/js/app.js"
+                "./js/main.js",
+                "./js/app.js"
             ],
-            "dest": "./build/js/",
-            "watch": "./src/js/**/*.js"
+            "dest": "./js/build/",
+            "watch": "./js/**/*.js"
         },
         "css": {
-            "src": "./src/sass/*.scss",
-            "dest": "./build/css/",
-            "watch": "./src/sass/**/*.scss",
+            "src": "./stylus/*.styl",
+            "dest": "./css/",
+            "watch": "./stylus/**/*.styl",
             "autoprefixer": {
                 "browsers": [
                     "last 100 version"
@@ -29,13 +29,12 @@
         "html": {
             "src": "./src/*.html",
             "dest": "./build/",
-            "watch": "./src/**/*.html",
-            "dataFile": "data/global.json"
+            "watch": "./src/**/*.html"
         },
         "images": {
-            "src": "./src/img/**/*.*",
-            "dest": "./build/img/",
-            "watch": "./src/img/**/*.*"
+            "src": "./images/**/*.*",
+            "dest": "./images/",
+            "watch": "./images/**/*.*"
         },
         "fonts": {
             "src": "./src/fonts/**/*.*",
