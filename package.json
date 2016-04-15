@@ -5,8 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "scripts": {
-    "gulp": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "./node_modules/.bin/gulp"
   },
   "author": "ealexseen",
   "devDependencies": {
@@ -15,7 +14,6 @@
     "babelify": "^7.2.0",
     "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
-    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-load-plugins": "^1.2.0",
